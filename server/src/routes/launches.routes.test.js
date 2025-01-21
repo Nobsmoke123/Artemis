@@ -5,10 +5,12 @@ const {
   connectDatabase,
   disconnectDatabase,
 } = require("./../database/database");
+const { loadPlanetsData } = require("../model/planets.model");
 
 describe("Launc API", () => {
   beforeAll(async () => {
     await connectDatabase();
+    await loadPlanetsData(); // Load planets data before running tests
   });
 
   afterAll(async () => {
