@@ -10,13 +10,13 @@ COPY package*.json ./
 COPY client/package*.json client/
 
 # Install app dependencies that are only for production
-RUN npm run install-client --only=production
+RUN npm run install-client --omit=dev
 
 # Copy the server package.json
 COPY server/package*.json server/
 
 # Install app dependencies that are only for production
-RUN npm run install-server --only=production
+RUN npm run install-server --omit=dev
 
 # Copy the client code
 COPY client/ client/
